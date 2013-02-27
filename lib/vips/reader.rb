@@ -9,7 +9,7 @@ module VIPS
 
     def read
       # in case the sub-class has not read it
-      if not @_im 
+      if not @_im
           @_im = read_retry @path, 0
       end
       @_im
@@ -66,13 +66,11 @@ module VIPS
 
     def read
       str = "#{@path}:#{shrink_factor}"
-      str << "," 
-      str << "fail" if @fail_on_warn
+      str << "," << "fail" if @fail_on_warn
 
       seq = 0
       if VIPS.sequential_mode_supported?
-        str << "," 
-        str << "sequential" if @sequential
+        str << "," << "sequential" if @sequential
         seq = 1
       end
 
